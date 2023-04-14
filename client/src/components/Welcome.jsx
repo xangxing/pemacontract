@@ -8,15 +8,7 @@ import { Loader } from "./";
 const commonStyles =
   "min-h-[70px] px-2 min-w-[150px] flex justify-center items-center border-4 border-gray-400 text-sm font-bold text-black";
 
-const Input = ({
-  placeholder,
-  name,
-  type,
-  value,
-  sendTransaction,
-  handleChange,
-  className,
-}) => (
+const Input = ({ placeholder, name, type, value, handleChange, className }) => (
   <input
     placeholder={placeholder}
     type={type}
@@ -29,8 +21,8 @@ const Input = ({
 
 const Welcome = () => {
   const {
-    connectWallet,
     currentAccount,
+    connectWallet,
     formData,
     sendTransaction,
     handleChange,
@@ -46,6 +38,7 @@ const Welcome = () => {
 
     sendTransaction();
   };
+
   return (
     <div className="flex w-full justify-center items-center">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
@@ -94,28 +87,24 @@ const Welcome = () => {
               placeholder="AddressTo"
               name="addressTo"
               type="text"
-              value={formData.addressTo}
               handleChange={handleChange}
             />
             <Input
               placeholder="Amount (ETH)"
               name="amount"
               type="number"
-              value={formData.amount}
               handleChange={handleChange}
             />
             <Input
               placeholder="Keyword (Gif)"
               name="keyword"
               type="text"
-              value={formData.keyword}
               handleChange={handleChange}
             />
             <Input
               placeholder="Message"
               name="message"
               type="text"
-              value={formData.message}
               handleChange={handleChange}
             />
 
@@ -126,10 +115,10 @@ const Welcome = () => {
             ) : (
               <button
                 type="button"
-                onClick={sendTransaction}
-                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer  hover:bg-[#2546bd]"
+                onClick={handleSubmit}
+                className="text-pink-200 w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer  hover:bg-[#2546bd]"
               >
-                SEND ETH
+                SEND ETHEREUM 24/7
               </button>
             )}
           </div>
